@@ -1,3 +1,11 @@
+import urllib.request
+def download_font(font_path):
+    if not os.path.exists(font_path):
+        st.info("正在自动下载开源中文字体（思源黑体），请稍候...")
+        url = "https://raw.githubusercontent.com/googlefonts/noto-cff/main/hinted/ttf/NotoSansHans-Regular.otf"
+        urllib.request.urlretrieve(url, font_path)
+        st.success("字体下载成功！")
+
 # -*- coding: utf-8 -*-
 import streamlit as st
 import pdfplumber
@@ -27,6 +35,8 @@ AI_DISCLAIMER = (
 
 # ================= 1. 字体注册 =================
 def register_chinese_font():
+    download_font(os.path.join(os.path.dirname(os.path.abspath(__file__)), "font.ttf"))
+
     candidates = [
         ('/System/Library/Fonts/PingFang.ttc', 0),
         ('/System/Library/Fonts/STHeiti Light.ttc', 0),
