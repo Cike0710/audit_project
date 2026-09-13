@@ -21,4 +21,3 @@ reportlab>=4.0.0
 
 # 环境变量管理
 python-dotenv>=1.0.0
-fontconfig
