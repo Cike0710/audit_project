@@ -41,7 +41,7 @@ def register_chinese_font():
         ('/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc', 0),
         ('/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf', None),
     ]
-    local_font = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'font.ttf')
+    local_font = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fonts/SimHei.ttf')
     candidates.append((local_font, None))
 
     for path, subfont_idx in candidates:
@@ -328,7 +328,7 @@ def export_to_excel_json(final_json, raw_results, sections):
 # ================= 2. PDF 生成（最稳写法） =================
 def export_to_pdf_json(final_json, raw_results):
     if FONT_NAME is None:
-        return None, "未找到可用的中文字体，无法生成PDF。请将任意中文.ttf字体文件命名为 font.ttf 放到程序同目录。"
+        return None, "未找到可用的中文字体，无法生成PDF。请将任意中文.ttf字体文件命名为 fonts/SimHei.ttf 放到程序同目录。"
 
     buffer = BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=A4, leftMargin=2*cm, rightMargin=2*cm, topMargin=2*cm, bottomMargin=2*cm)
